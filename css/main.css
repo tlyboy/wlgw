@@ -7,11 +7,11 @@
   background-color: #ecf0f1;
 }
 
-.game {
+.checkerboard {
   font-size: 20px;
 }
 
-.game ul {
+.checkerboard ul {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 6px;
@@ -22,7 +22,7 @@
   list-style: none;
 }
 
-.game li {
+.checkerboard li {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,13 +32,13 @@
   transition: all 0.3s;
 }
 
-.game li:hover:not(.clear),
-.game .checked {
+.checkerboard li:hover:not(.clear),
+.checkerboard .checked {
   background-color: #e74c3c;
   transform: scale(1.1);
 }
 
-.game .clear {
+.checkerboard .clear {
   cursor: default;
   opacity: 0;
 }
