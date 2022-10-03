@@ -1,0 +1,44 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ecf0f1;
+}
+
+.game {
+  font-size: 20px;
+}
+
+.game ul {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  width: 300px;
+  height: 300px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.game li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: #e67e22;
+  transition: all 0.3s;
+}
+
+.game li:hover:not(.clear),
+.game .checked {
+  background-color: #e74c3c;
+  transform: scale(1.1);
+}
+
+.game .clear {
+  cursor: default;
+  opacity: 0;
+}
