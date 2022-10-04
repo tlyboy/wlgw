@@ -23,7 +23,7 @@ let second
 
 lis.forEach(li => {
   li.addEventListener('click', e => {
-    if (!e.target.classList.contains('checked')) {
+    if (!e.target.classList.contains('checked') && !e.target.classList.contains('clear')) {
       if (!first) {
         first = e.target
         first.classList.add('checked')
