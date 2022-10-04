@@ -2,8 +2,7 @@ const checkerboard = document.querySelector('.checkerboard')
 const ul = checkerboard.querySelector('ul')
 
 let count = 36
-let str = ''
-
+let lis = ''
 let foods = ['🍕', '🍔', '🍟', '🌭', '🍿', '🧂', '🥓', '🥚']
 
 function getRandomInt(max) {
@@ -11,18 +10,16 @@ function getRandomInt(max) {
 }
 
 for (let i = 0; i < count; i++) {
-  str += `<li>${foods[getRandomInt(8)]}</li>`
+  lis += `<li>${foods[getRandomInt(foods.length)]}</li>`
 }
 
-ul.innerHTML = str
-
-const lis = ul.querySelectorAll('li')
+ul.innerHTML = lis
 
 let first
 let second
 
-lis.forEach(li => {
-  li.addEventListener('click', e => {
+ul.addEventListener('click', e => {
+  if (e.target && e.target.nodeName === 'LI') {
     if (!e.target.classList.contains('checked') && !e.target.classList.contains('clear')) {
       if (!first) {
         first = e.target
@@ -47,5 +44,5 @@ lis.forEach(li => {
         }
       }
     }
-  })
+  }
 })
