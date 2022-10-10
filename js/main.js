@@ -3,14 +3,28 @@ const ul = checkerboard.querySelector('ul')
 
 let count = 36
 let lis = ''
-let foods = ['🍕', '🍔', '🍟', '🌭', '🍿', '🧂', '🥓', '🥚']
+let foods = ['🍕', '🍔', '🍟', '🌭', '🍿', '🧂']
+let map = []
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max)
 }
 
 for (let i = 0; i < count; i++) {
-  lis += `<li>${foods[getRandomInt(foods.length)]}</li>`
+  map.push(foods[i % foods.length])
+}
+
+for (let i = 0; i < map.length / 2; i++) {
+  let a = getRandomInt(map.length)
+  let b = getRandomInt(map.length)
+
+  let temp = map[a]
+  map[a] = map[b]
+  map[b] = temp
+}
+
+for (let i = 0; i < map.length; i++) {
+  lis += `<li>${map[i]}</li>`
 }
 
 ul.innerHTML = lis
@@ -37,6 +51,12 @@ ul.addEventListener('click', e => {
 
           first = undefined
           second = undefined
+
+          count -= 2
+
+          if (count === 0) {
+            checkerboard.innerHTML = '<h1 class="win">你赢了</h1>'
+          }
         } else {
           first.classList.remove('checked')
           first = second
