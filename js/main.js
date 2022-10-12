@@ -55,7 +55,7 @@ ul.addEventListener('click', e => {
           count -= 2
 
           if (count === 0) {
-            checkerboard.innerHTML = '<h1 class="win">你赢了</h1>'
+            checkerboard.innerHTML = /*html*/ `<h1 class="win">你赢了</h1>`
           }
         } else {
           first.classList.remove('checked')
