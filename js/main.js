@@ -1,22 +1,19 @@
 const checkerboard = document.querySelector('.checkerboard')
 const ul = checkerboard.querySelector('ul')
 
+const foods = ['🍕', '🍔', '🍟', '🌭', '🍿', '🧂']
+const map = []
+
 let count = 36
 let lis = ''
-let foods = ['🍕', '🍔', '🍟', '🌭', '🍿', '🧂']
-let map = []
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max)
-}
 
 for (let i = 0; i < count; i++) {
   map.push(foods[i % foods.length])
 }
 
 for (let i = 0; i < map.length / 2; i++) {
-  let a = getRandomInt(map.length)
-  let b = getRandomInt(map.length)
+  const a = getRandomInt(map.length)
+  const b = getRandomInt(map.length)
 
   let temp = map[a]
   map[a] = map[b]
@@ -66,3 +63,7 @@ ul.addEventListener('click', e => {
     }
   }
 })
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max)
+}
