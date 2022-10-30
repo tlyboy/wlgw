@@ -29,9 +29,12 @@ ul.innerHTML = lis
 let first
 let second
 
-ul.addEventListener('click', e => {
+ul.addEventListener('click', (e) => {
   if (e.target && e.target.nodeName === 'LI') {
-    if (!e.target.classList.contains('checked') && !e.target.classList.contains('clear')) {
+    if (
+      !e.target.classList.contains('checked') &&
+      !e.target.classList.contains('clear')
+    ) {
       if (!first) {
         first = e.target
         first.classList.add('checked')
